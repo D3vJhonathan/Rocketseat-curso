@@ -108,6 +108,7 @@ footer {
   margin: 4px auto;
 }
 #switch button {
+  animation: slide-back 0.4s;
   width: 32px;
   height: 32px;
   background: white var(--switch-bg-url) center no-repeat;
@@ -120,8 +121,11 @@ footer {
   left: 0;
 }
 .light #switch button {
-  right: 0;
-  left: initial;
+  animation: slide-in 0.4s forwards;
+}
+
+#switch button:hover {
+  outline: 8px solid var(--highlight-color);
 }
 #switch span {
   display: block;
@@ -140,5 +144,23 @@ footer {
 
   .light {
     --bg-url: url(./assets/bg-desktop-light.jpg);
+  }
+}
+
+@keyframes slide-in {
+  from {
+    left: 0;
+  }
+  to {
+    left: 50%;
+  }
+}
+
+@keyframes slide-back {
+  from {
+    left: 50%;
+  }
+  to {
+    left: 0;
   }
 }
